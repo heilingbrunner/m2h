@@ -2,7 +2,7 @@
 
 BINARY             := m2h
 PRODUCTNAME        := m2h
-VERSION            := 1.0.3
+VERSION            := 1.0.5
 
 DIST_DIR           := ./dist
 

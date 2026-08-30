@@ -1,0 +1,12 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "${env:PROGRAMS}\\msys64\\usr\\bin;${env:PROGRAMS}\\msys64\\ucrt64\\bin;${env:GOPATH}\\bin;${env:PATH}"
+    },
+    "terminal.integrated.env.linux": {
+        "PATH": "${env:GOPATH}/bin:${env:PATH}"
+    },
+    "[makefile]": {
+        "editor.renderWhitespace": "all"
+    },
+    "go.formatTool": "gofmt"
+}

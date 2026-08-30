@@ -1,0 +1,30 @@
+{{- define "head.html" -}}
+<head>
+<style>
+body {
+    background-color: white;
+    width:96%;
+    margin-left:auto;
+    margin-right:auto;
+}
+img {
+    vertical-align: baseline
+}
+div.center {
+    text-align: center;
+}
+.small {
+    background-color: white;
+    color: #A0A0A0;
+    font-weight: bold;
+    font-size: xx-small;
+}
+</style>
+<link
+href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAADtAAAA7QGrb5NZAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAjRJREFUOI2F0s1LVFEYx/HvnXMuNpOjKYmLQGjXolxm7qZdUBGEmyAi2mX0D7ROjFYFhotqUUKSQeEik4QGeoFcREoGM8L4QpAM+TJenblz555znhahoI16lg98Hn7nx+NlMxm96tzThO+fU0olAXHgqPPWwnB9qlgcblHqVWd7+91PS0tZvRbHg61tbdd0Ok3C9xFrMZubSBzvwB/n58OB2dneke7uDxta59OpVEdpYSHW4nkXVDKJbmxEJZO4Wg1xjnhlZRtPzM1t9Odyp4DFUq32pjmV6hBjcM6hlbXJBKB8H7+pCRMEWM/DA8QY8svL8jCXOwssZru6zthU6hLGAJAQQTtjxEURtlwGEVwU4cIQV62yUa0ykM/fqcA3gJLnvWhyzhP3ryJnLVpEbFwqIc6RCALEmO0OXhYKMz/L5XsAo52dNw/7/vEd3TiHFmOQSoW4UsHTGrEWRJgrlWS4WOwByGYyej0I+reiA2AtzhjRwfR0NakUaA1K4SmFVYrnUTQE5AF+T072tjQ0NEfGgLVgLVKrsQqhFhHEGLa2C/Aeqp/hNsAopKMw7HNhWO80SOweVIEx6AMCgBV4kILGuhrQuwdjsFaA+wCv4aSC63vh/xIsA2/hFlDLwqEKjKs6KfdcMAIzRRgGWISRI3BsPywg21/4AmYMLgt4Q/CoFS4egPkFBQ3wHdwTuPIOEs/g61E4vR8GGIfoBwx65+HqBEzfAKlAzx84cRBegsIUPAYW/gIGyyMaag+QtgAAAABJRU5ErkJggg=="
+rel="icon" type="image/png" sizes="16x16" />
+{{ if .UsePagedJs -}}
+<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+{{- end }}
+</head>
+{{- end -}}

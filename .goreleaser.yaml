@@ -1,0 +1,52 @@
+# see https://goreleaser.com
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+    - go generate ./...
+    - golangci-lint run ./...
+    - go vet ./...
+    # Generates *_windows_*.syso, ignored by other targets.
+    - go-winres make
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+    goos:
+      - linux
+      - windows
+    goarch:
+      - amd64
+    # Output binaries to ./dist/<os>-<arch>/<binary> (matches the Makefile layout).
+    no_unique_dist_dir: true
+    binary: "{{ .Os }}-{{ .Arch }}/m2h"
+
+archives:
+  - formats: [tar.gz]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    # keep the binary at the archive root, not under <os>-<arch>/
+    strip_binary_directory: true
+    # Windows users expect .zip
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+      - '^ci:'

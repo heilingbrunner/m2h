@@ -1,0 +1,11 @@
+{{ define "page-md.html" -}}
+<!DOCTYPE html>
+<html>
+{{ template "head.html" .Options }}
+<body>
+{{ .Content }}
+</body>
+{{ template "footer.html" .Options }}
+{{ template "script.html" .Options }}
+</html>
+{{- end }}

@@ -1,0 +1,11 @@
+{{ define "page-txt.html" -}}
+<!DOCTYPE html>
+<html>
+{{ template "head.html" .Options }}
+<body>
+<div>{{ .Content }}</div>
+</body>
+{{ template "footer.html" .Options }}
+{{ template "script.html" .Options }}
+</html>
+{{- end }}

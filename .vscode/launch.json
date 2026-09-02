@@ -21,7 +21,17 @@
             "mode": "auto",
             "program": "main.go",
             "args": [
-                "-v",
+                "-v"
+            ]
+        },
+        {
+            "name": "version dist/windows-amd64/m2h.exe",
+            "type": "go",
+            "request": "launch",
+            "mode": "exec",
+            "program": "${workspaceFolder}/dist/windows-amd64/m2h.exe",
+            "args": [
+                "-v"
             ]
         }
     ]

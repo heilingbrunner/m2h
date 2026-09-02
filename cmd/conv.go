@@ -353,8 +353,8 @@ func readFile(fileName string) ([]byte, error) {
 
 func readStdin() ([]byte, error) {
 
-	// read stdin
-	return io.ReadAll(os.Stdin)
+	// read stdin, skip bom char if exists
+	return io.ReadAll(utfbom.SkipOnly(os.Stdin))
 }
 
 func toMarkdown(lng string, content []byte) []byte {

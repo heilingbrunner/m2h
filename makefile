@@ -99,15 +99,15 @@ go-install_development_tools: ## Install required development tools
 	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@latest
 	@echo "install-tools: deadcode, golangci-lint, go-winres, govulncheck, goreleaser, syft*, grype*, cyclonedx-gomod*, installed"
 
-.PHONY: build-windows_amd64
-build-windows_amd64: go-winres ## Build for windows-amd64
+.PHONY: build-windows
+build-windows: go-winres ## Build for windows-amd64
 	@echo "Running Windows amd64 build..."
 	@mkdir -p $(DIST_DIR)/windows-amd64
 	env GOOS=windows GOARCH=amd64 CGO_ENABLED=$(CGO_ENABLED) $(GOBUILD) $(LDFLAGS) -o $(DIST_DIR)/windows-amd64/$(BINARY)$(EXE_EXT) $(MAIN)
 	@env GOOS=windows GOARCH=amd64 go env GOOS GOARCH GOROOT GOPATH
 
-.PHONY: build-linux_amd64
-build-linux_amd64: go-vet ## Build for linux-amd64
+.PHONY: build-linux
+build-linux: go-vet ## Build for linux-amd64
 	@echo "Running Linux amd64 build..."
 	@mkdir -p $(DIST_DIR)/linux-amd64
 	env GOOS=linux GOARCH=amd64 CGO_ENABLED=$(CGO_ENABLED) $(GOBUILD) $(LDFLAGS) -o $(DIST_DIR)/linux-amd64/$(BINARY) $(MAIN)

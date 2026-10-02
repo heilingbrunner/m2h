@@ -33,6 +33,13 @@
             "args": [
                 "-v"
             ]
+        },
+        {
+            "name": "windows-amd64/m2h.exe test/test.md",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "${workspaceFolder}/dist/windows-amd64/m2h.exe test/test.md > ${workspaceFolder}/test/test.htm; exit $LASTEXITCODE",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
